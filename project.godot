@@ -21,7 +21,18 @@ _global_script_class_icons={
 [application]
 
 config/name="Spring Game Jam 2024"
+run/main_scene="res://ocean test.tscn"
 config/icon="res://icon.png"
+
+[display]
+
+window/size/width=427
+window/size/height=240
+window/size/resizable=false
+window/size/test_width=1280
+window/size/test_height=720
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
 
 [editor]
 
@@ -32,10 +43,18 @@ version_control_plugin_name="GitAPI"
 
 common/drop_mouse_on_gui_input_disabled=true
 
+[input]
+
+down={
+"deadzone": 0.5,
+"events": [  ]
+}
+
 [physics]
 
 common/enable_pause_aware_picking=true
 
 [rendering]
 
+2d/snapping/use_gpu_pixel_snap=true
 environment/default_environment="res://default_env.tres"
