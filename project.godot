@@ -26,8 +26,8 @@ config/icon="res://icon.png"
 
 [display]
 
-window/size/width=427
-window/size/height=240
+window/size/width=640
+window/size/height=360
 window/size/resizable=false
 window/size/test_width=1280
 window/size/test_height=720
@@ -57,4 +57,6 @@ common/enable_pause_aware_picking=true
 [rendering]
 
 2d/snapping/use_gpu_pixel_snap=true
+quality/shadows/filter_mode=0
+quality/shading/use_physical_light_attenuation=true
 environment/default_environment="res://default_env.tres"

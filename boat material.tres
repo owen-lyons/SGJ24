@@ -1,12 +1,20 @@
-[gd_resource type="SpatialMaterial" load_steps=2 format=2]
+[gd_resource type="SpatialMaterial" load_steps=3 format=2]
 
 [ext_resource path="res://outline materia.tres" type="Material" id=1]
+[ext_resource path="res://Aseprite/wood tile.png" type="Texture" id=2]
 
 [resource]
 next_pass = ExtResource( 1 )
-albedo_color = Color( 0.768627, 0.541176, 0.337255, 1 )
-refraction_enabled = true
-refraction_scale = 0.05
-refraction_texture_channel = 0
+flags_vertex_lighting = true
+params_depth_draw_mode = 1
+albedo_texture = ExtResource( 2 )
+depth_enabled = true
+depth_scale = 0.05
+depth_deep_parallax = false
+depth_flip_tangent = false
+depth_flip_binormal = false
+uv1_scale = Vector3( 4, 4, 4 )
+uv1_triplanar = true
+uv2_offset = Vector3( 16, 16, 16 )
 proximity_fade_enable = true
 proximity_fade_distance = 1.0
