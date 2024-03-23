@@ -8,11 +8,13 @@ var time_active = 0;
 # Called when the node enters the scene tree for the first time.
 
 onready var mesh = get_node("Mesh")
-onready var player = get_node("Player")
-onready var debug_text = get_parent().get_node("Control/RichTextLabel")
-onready var balance_meter = get_parent().get_node("Control/ReferenceRect/BalanceMeterRect")
+onready var player = get_parent().get_node("Player")
+onready var debug_text = get_parent().get_node("UI/DebugText")
+onready var balance_meter = get_parent().get_node("UI/ReferenceRect/BalanceMeterRect")
 onready var camera = get_parent().get_node("CameraHolder/Camera")
 
+
+var rotation_cap = PI/14;
 var rotational_velocity = 0;
 
 func _ready():
@@ -37,13 +39,12 @@ func _physics_process(delta):
 	
 	mesh.rotation.z *= 0.96
 	
-	if (mesh.rotation.z > PI/12 or mesh.rotation.z < -PI/12):
+	if (mesh.rotation.z > rotation_cap or mesh.rotation.z < -rotation_cap):
 		rotational_velocity = 0
 		time_active = 0
 		camera.shake_duration = 0.7
 	
-	mesh.rotation.z = clamp(mesh.rotation.z, -PI/12, PI/12)
-	debug_text.text = str(((60 + 60 * mesh.rotation.z / (PI/12))))
-	balance_meter.rect_size.x = (60 + 60 * mesh.rotation.z / (PI/12))
+	mesh.rotation.z = clamp(mesh.rotation.z, -rotation_cap, rotation_cap)
+	balance_meter.rect_size.x = (60 + 60 * mesh.rotation.z / (rotation_cap))
 	
 	pass
