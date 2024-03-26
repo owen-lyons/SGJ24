@@ -1,221 +1,18 @@
-[gd_scene load_steps=55 format=2]
+[gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://BoatScript.gd" type="Script" id=1]
-[ext_resource path="res://boat material.tres" type="Material" id=2]
-[ext_resource path="res://Aseprite/link walk n.png" type="Texture" id=3]
-[ext_resource path="res://Aseprite/link walk e.png" type="Texture" id=4]
-[ext_resource path="res://Aseprite/link walk w.png" type="Texture" id=5]
-[ext_resource path="res://Aseprite/link walk s.png" type="Texture" id=6]
-[ext_resource path="res://Player.gd" type="Script" id=7]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Whirlpool.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Boat.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Aseprite/balance meter background.png" type="Texture" id=8]
 [ext_resource path="res://Aseprite/balance meter backdrop.png" type="Texture" id=9]
 [ext_resource path="res://CameraScript.gd" type="Script" id=10]
-[ext_resource path="res://PlayerShadow.gd" type="Script" id=11]
-
-[sub_resource type="AtlasTexture" id=33]
-flags = 16
-atlas = ExtResource( 4 )
-region = Rect2( 0, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=34]
-flags = 16
-atlas = ExtResource( 4 )
-region = Rect2( 32, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=35]
-flags = 16
-atlas = ExtResource( 4 )
-region = Rect2( 64, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=36]
-flags = 16
-atlas = ExtResource( 4 )
-region = Rect2( 96, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=37]
-flags = 16
-atlas = ExtResource( 4 )
-region = Rect2( 128, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=38]
-flags = 16
-atlas = ExtResource( 4 )
-region = Rect2( 160, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=39]
-flags = 16
-atlas = ExtResource( 4 )
-region = Rect2( 192, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=40]
-flags = 16
-atlas = ExtResource( 4 )
-region = Rect2( 224, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=6]
-flags = 16
-atlas = ExtResource( 3 )
-region = Rect2( 0, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=7]
-flags = 16
-atlas = ExtResource( 3 )
-region = Rect2( 32, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=8]
-flags = 16
-atlas = ExtResource( 3 )
-region = Rect2( 64, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=9]
-flags = 16
-atlas = ExtResource( 3 )
-region = Rect2( 96, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=10]
-flags = 16
-atlas = ExtResource( 3 )
-region = Rect2( 128, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=11]
-flags = 16
-atlas = ExtResource( 3 )
-region = Rect2( 160, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=12]
-flags = 16
-atlas = ExtResource( 3 )
-region = Rect2( 192, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=13]
-flags = 16
-atlas = ExtResource( 3 )
-region = Rect2( 224, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=14]
-flags = 16
-atlas = ExtResource( 3 )
-region = Rect2( 256, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=41]
-atlas = ExtResource( 6 )
-region = Rect2( 0, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=42]
-atlas = ExtResource( 6 )
-region = Rect2( 32, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=43]
-atlas = ExtResource( 6 )
-region = Rect2( 64, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=44]
-atlas = ExtResource( 6 )
-region = Rect2( 96, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=45]
-atlas = ExtResource( 6 )
-region = Rect2( 128, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=46]
-atlas = ExtResource( 6 )
-region = Rect2( 160, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=47]
-atlas = ExtResource( 6 )
-region = Rect2( 192, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=48]
-atlas = ExtResource( 6 )
-region = Rect2( 224, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=49]
-atlas = ExtResource( 6 )
-region = Rect2( 256, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=24]
-flags = 16
-atlas = ExtResource( 5 )
-region = Rect2( 0, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=25]
-flags = 16
-atlas = ExtResource( 5 )
-region = Rect2( 32, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=26]
-flags = 16
-atlas = ExtResource( 5 )
-region = Rect2( 64, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=27]
-flags = 16
-atlas = ExtResource( 5 )
-region = Rect2( 96, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=28]
-flags = 16
-atlas = ExtResource( 5 )
-region = Rect2( 128, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=29]
-flags = 16
-atlas = ExtResource( 5 )
-region = Rect2( 160, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=30]
-flags = 16
-atlas = ExtResource( 5 )
-region = Rect2( 192, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=31]
-flags = 16
-atlas = ExtResource( 5 )
-region = Rect2( 224, 0, 32, 32 )
-
-[sub_resource type="SpriteFrames" id=32]
-animations = [ {
-"frames": [ SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ), SubResource( 37 ), SubResource( 38 ), SubResource( 39 ), SubResource( 40 ) ],
-"loop": true,
-"name": "walk e",
-"speed": 15.0
-}, {
-"frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ) ],
-"loop": true,
-"name": "walk n",
-"speed": 15.0
-}, {
-"frames": [ SubResource( 41 ), SubResource( 42 ), SubResource( 43 ), SubResource( 44 ), SubResource( 45 ), SubResource( 46 ), SubResource( 47 ), SubResource( 48 ), SubResource( 49 ) ],
-"loop": true,
-"name": "walk s",
-"speed": 15.0
-}, {
-"frames": [ SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ) ],
-"loop": true,
-"name": "walk w",
-"speed": 15.0
-} ]
-
-[sub_resource type="SphereShape" id=61]
-radius = 0.5
-
-[sub_resource type="CubeMesh" id=1]
-
-[sub_resource type="BoxShape" id=53]
-extents = Vector3( 3.58641, 0.340667, 4.37467 )
-
-[sub_resource type="BoxShape" id=52]
-extents = Vector3( 0.262704, 0.768508, 4.25116 )
-
-[sub_resource type="BoxShape" id=54]
-extents = Vector3( 0.262704, 0.768508, 3.60498 )
 
 [sub_resource type="CubeMesh" id=59]
 
 [sub_resource type="Skin" id=4]
 
 [sub_resource type="SpatialMaterial" id=60]
-albedo_color = Color( 0, 0.380392, 0.682353, 1 )
+albedo_color = Color( 0.219608, 0.376471, 0.658824, 1 )
 
 [node name="Spatial" type="Spatial"]
 
@@ -225,120 +22,10 @@ light_indirect_energy = 0.5
 light_specular = 0.0
 shadow_enabled = true
 
-[node name="Player" type="KinematicBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1.5, 0, 0, 0, 1, 0, 3.186, 0 )
-script = ExtResource( 7 )
+[node name="Boat" parent="." instance=ExtResource( 3 )]
 
-[node name="Sprite" type="AnimatedSprite3D" parent="Player"]
-transform = Transform( 1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 0.1, 0 )
-generate_lightmap = false
-lightmap_scale = 3
-offset = Vector2( 0, 6 )
-pixel_size = 0.0075
-shaded = true
-double_sided = false
-fixed_size = true
-render_priority = 3
-frames = SubResource( 32 )
-animation = "walk s"
-frame = 1
-playing = true
-
-[node name="ShadowSprite" type="AnimatedSprite3D" parent="Player/Sprite"]
-transform = Transform( 6.6, 0, 0, 0, 6.6, 0, 0, 2.38419e-07, 6.6, 0, 0, 0 )
-cast_shadow = 3
-generate_lightmap = false
-lightmap_scale = 3
-offset = Vector2( 0, 6 )
-pixel_size = 0.0075
-double_sided = false
-alpha_cut = 2
-render_priority = 3
-frames = SubResource( 32 )
-animation = "walk s"
-script = ExtResource( 11 )
-
-[node name="CollisionShape" type="CollisionShape" parent="Player"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.212, 0 )
-shape = SubResource( 61 )
-
-[node name="Boat" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1.5, 0, 0, 0, 1, 0, 0, 0 )
-script = ExtResource( 1 )
-
-[node name="Mesh" type="Spatial" parent="Boat"]
-transform = Transform( -0.848528, 0, 0.848528, 0, 1, 0, -0.848528, 0, -0.848528, 0, 0, 0 )
-
-[node name="MeshInstance2" type="CSGMesh" parent="Boat/Mesh"]
-transform = Transform( 1.18844, -0.0162921, 0, 0.167593, 0.0156294, 0, 0, 0, 4.11184, 1.86578, 1.06361, 0.0144625 )
-generate_lightmap = false
-mesh = SubResource( 1 )
-material = ExtResource( 2 )
-
-[node name="MeshInstance3" type="CSGMesh" parent="Boat/Mesh"]
-transform = Transform( -1.18844, -0.0162921, 0, 0.167593, -0.0156294, 0, 0, 0, 4.11184, -1.84155, 1.08835, -0.00601315 )
-generate_lightmap = false
-mesh = SubResource( 1 )
-material = ExtResource( 2 )
-
-[node name="MeshInstance4" type="CSGMesh" parent="Boat/Mesh"]
-transform = Transform( 0.317973, 0.108043, 0, -0.385867, 0.0890325, 0, 0, 0, 4, -3.00568, 1.49542, -0.0165075 )
-generate_lightmap = false
-mesh = SubResource( 1 )
-material = ExtResource( 2 )
-
-[node name="MeshInstance7" type="CSGMesh" parent="Boat/Mesh"]
-transform = Transform( 0, -7.45058e-09, -3.32895, -0.383001, 0.0899955, -1.70806e-07, 0.321376, 0.107252, -2.38419e-07, 0.20714, 1.57329, -3.9408 )
-generate_lightmap = false
-mesh = SubResource( 1 )
-material = ExtResource( 2 )
-
-[node name="MeshInstance5" type="CSGMesh" parent="Boat/Mesh"]
-transform = Transform( -0.317973, -0.108043, -6.03983e-07, -0.385867, 0.0890325, -1.0295e-07, 5.79439e-08, 1.40225e-08, -4, 3, 1.483, -0.017 )
-generate_lightmap = false
-mesh = SubResource( 1 )
-material = ExtResource( 2 )
-
-[node name="MeshInstance" type="CSGMesh" parent="Boat/Mesh"]
-transform = Transform( 1.25101, 0, 0, 0, 0.193678, 0, 0, 0, 4.04146, 0.00952006, 0.889425, -0.00601319 )
-generate_lightmap = false
-mesh = SubResource( 1 )
-material = ExtResource( 2 )
-
-[node name="MeshInstance6" type="CSGMesh" parent="Boat/Mesh"]
-transform = Transform( 2.96502, 0, 0, 0, 0.171638, 0, 0, 0, 4.04146, 0.0109755, 1.33078, -0.00168049 )
-generate_lightmap = false
-mesh = SubResource( 1 )
-material = ExtResource( 2 )
-
-[node name="BoatCollision" type="StaticBody" parent="Boat/Mesh"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.375, 0 )
-
-[node name="CollisionShape2" type="CollisionShape" parent="Boat/Mesh/BoatCollision"]
-transform = Transform( 1, 0, 0, 0, 1.10901, 0, 0, 0, 1, 0, -0.209444, 0 )
-shape = SubResource( 53 )
-
-[node name="CollisionShape" type="CollisionShape" parent="Boat/Mesh/BoatCollision"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.90834, 0, 0 )
-shape = SubResource( 52 )
-
-[node name="CollisionShape4" type="CollisionShape" parent="Boat/Mesh/BoatCollision"]
-transform = Transform( -8.9407e-08, 0, 1, 0, 1, 0, -1, 0, -8.9407e-08, -0.0837172, 0, 3.9553 )
-shape = SubResource( 54 )
-
-[node name="CollisionShape5" type="CollisionShape" parent="Boat/Mesh/BoatCollision"]
-transform = Transform( -8.9407e-08, 0, 1, 0, 1, 0, -1, 0, -8.9407e-08, -0.0872247, 0.00890493, -4.2964 )
-shape = SubResource( 54 )
-
-[node name="CollisionShape3" type="CollisionShape" parent="Boat/Mesh/BoatCollision"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.27767, 0, 0 )
-shape = SubResource( 52 )
-
-[node name="Ocean" type="MeshInstance" parent="."]
-transform = Transform( 200, 0, 0, 0, 0.1, 0, 0, 0, 200, 0, 1.41264, 0 )
-mesh = SubResource( 59 )
-skin = SubResource( 4 )
-material/0 = SubResource( 60 )
+[node name="Player" parent="Boat" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.124, 0 )
 
 [node name="CameraHolder" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866026, 0, 20, 30 )
@@ -387,3 +74,30 @@ color = Color( 0.12549, 0.752941, 0.156863, 1 )
 [node name="BalanceMeterFrame" type="Sprite" parent="UI/ReferenceRect"]
 texture = ExtResource( 8 )
 centered = false
+
+[node name="OceanHolder" type="Spatial" parent="."]
+transform = Transform( -0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, 0, 0, 0 )
+
+[node name="OceanMesh" type="MeshInstance" parent="OceanHolder"]
+transform = Transform( 200, 0, 0, 0, 0.1, 0, 0, 0, 200, 0, 1.41264, 0 )
+mesh = SubResource( 59 )
+skin = SubResource( 4 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 60 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Whirlpool2" parent="OceanHolder" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.8596, 1.55, -3.86964 )
+
+[node name="Whirlpool5" parent="OceanHolder" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -71.8596, 1.55, 1.13035 )
+
+[node name="Whirlpool3" parent="OceanHolder" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 31.9983, 1.55, -3.86964 )
+speed = -3
+
+[node name="Whirlpool4" parent="OceanHolder" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 57.4507, 1.55, 3.24411 )
+speed = -3

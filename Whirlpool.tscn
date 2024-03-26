@@ -1,0 +1,58 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Aseprite/whirlpool.png" type="Texture" id=1]
+[ext_resource path="res://WhirlpoolBehaviour.gd" type="Script" id=2]
+
+[sub_resource type="CylinderShape" id=68]
+height = 1.0
+radius = 0.2
+
+[sub_resource type="CylinderMesh" id=69]
+
+[sub_resource type="AtlasTexture" id=63]
+flags = 19
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=64]
+flags = 19
+atlas = ExtResource( 1 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=65]
+flags = 19
+atlas = ExtResource( 1 )
+region = Rect2( 32, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=66]
+flags = 19
+atlas = ExtResource( 1 )
+region = Rect2( 48, 0, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=67]
+animations = [ {
+"frames": [ SubResource( 63 ), SubResource( 64 ), SubResource( 65 ), SubResource( 66 ) ],
+"loop": true,
+"name": "default",
+"speed": 10.0
+} ]
+
+[node name="Whirlpool" type="Area"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.708, 1.6, 0 )
+script = ExtResource( 2 )
+speed = 3
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+visible = false
+shape = SubResource( 68 )
+
+[node name="MeshInstance" type="MeshInstance" parent="CollisionShape"]
+transform = Transform( 0.2, 0, 0, 0, 0.5, 0, 0, 0, 0.2, 0, 0, 0 )
+mesh = SubResource( 69 )
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0 )
+axis = 1
+shaded = true
+frames = SubResource( 67 )
+playing = true
