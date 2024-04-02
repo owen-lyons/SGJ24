@@ -7,7 +7,7 @@ extends Camera
 
 
 var shake_duration
-var shake_intensity = 20
+var shake_intensity = 40
 var init_offset
 var count 
 # Called when the node enters the scene tree for the first time.

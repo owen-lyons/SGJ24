@@ -1,0 +1,94 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Scripts/Interactable.gd" type="Script" id=1]
+[ext_resource path="res://Aseprite/steering wheel.png" type="Texture" id=2]
+[ext_resource path="res://Aseprite/steering_wheel_upright.png" type="Texture" id=3]
+
+[sub_resource type="AtlasTexture" id=1]
+flags = 19
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 19
+atlas = ExtResource( 2 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 19
+atlas = ExtResource( 2 )
+region = Rect2( 64, 0, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=5]
+flags = 19
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=6]
+flags = 19
+atlas = ExtResource( 3 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=7]
+animations = [ {
+"frames": [ SubResource( 5 ), SubResource( 6 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="CylinderShape" id=8]
+height = 1.5
+radius = 0.025
+
+[sub_resource type="CylinderShape" id=9]
+height = 0.3
+radius = 0.1
+
+[node name="SteeringWheel" type="Area"]
+transform = Transform( -0.833333, 0, -7.28523e-08, 0, 0.999999, 0, 7.28523e-08, 0, -0.833333, -0.185288, 0.461485, -2.14675 )
+collision_layer = 2
+collision_mask = 2
+script = ExtResource( 1 )
+type = 1
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform( 1, 0, -1.2282e-20, 0, -4.37115e-08, 1, 0, -1, -4.37114e-08, 0, -0.316914, -0.0639613 )
+cast_shadow = 0
+pixel_size = 0.075
+shaded = true
+double_sided = false
+alpha_cut = 2
+render_priority = 1
+frames = SubResource( 4 )
+
+[node name="Handle" type="AnimatedSprite3D" parent="."]
+transform = Transform( -0.707104, 0, -0.707104, 0, 0.749998, 0, 0.707104, 0, -0.707104, -0.274211, -0.279793, 0.197092 )
+flip_h = true
+pixel_size = 0.075
+shaded = true
+alpha_cut = 2
+frames = SubResource( 7 )
+frame = 1
+
+[node name="StaticBody" type="StaticBody" parent="Handle"]
+transform = Transform( 1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Handle/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.358436, 0.332059, -0.00855637 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 0.101733, -0.1681, 0.461375 )
+shape = SubResource( 9 )
+
+[node name="InteractionPoint" type="Spatial" parent="."]
+transform = Transform( 0.999997, 0, 0, 0, 0.999998, 0, 0, 0, 0.999997, 2.38419e-07, -0.279, 0.415886 )

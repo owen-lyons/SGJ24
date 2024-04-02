@@ -2,30 +2,28 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/wood tile.png-1781c78d8b131ff18dfcbcb8637d1421.s3tc.stex"
-path.etc2="res://.import/wood tile.png-1781c78d8b131ff18dfcbcb8637d1421.etc2.stex"
+path="res://.import/wood tile.png-1781c78d8b131ff18dfcbcb8637d1421.stex"
 metadata={
-"imported_formats": [ "s3tc", "etc2" ],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://Aseprite/wood tile.png"
-dest_files=[ "res://.import/wood tile.png-1781c78d8b131ff18dfcbcb8637d1421.s3tc.stex", "res://.import/wood tile.png-1781c78d8b131ff18dfcbcb8637d1421.etc2.stex" ]
+dest_files=[ "res://.import/wood tile.png-1781c78d8b131ff18dfcbcb8637d1421.stex" ]
 
 [params]
 
-compress/mode=2
+compress/mode=3
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
-compress/normal_map=0
+compress/normal_map=1
 flags/repeat=true
 flags/filter=false
-flags/mipmaps=false
-flags/anisotropic=false
-flags/srgb=1
+flags/mipmaps=true
+flags/anisotropic=true
+flags/srgb=0
 process/fix_alpha_border=false
 process/premult_alpha=false
 process/HDR_as_SRGB=false

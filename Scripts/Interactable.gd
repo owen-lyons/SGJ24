@@ -1,9 +1,8 @@
 extends Area
 
+enum EType{NONE,STEER,CANNON,ANCHOR}
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+export (EType) var type = EType.NONE
 
 onready var interaction_point = find_node("InteractionPoint")
 
@@ -11,7 +10,3 @@ onready var interaction_point = find_node("InteractionPoint")
 func _ready():
 	pass # Replace with function body.
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass

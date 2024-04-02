@@ -10,12 +10,13 @@ var time_active = 0;
 onready var body = get_node("BoatBody")
 onready var player = get_node("Player")
 onready var debug_text = get_parent().get_node("UI/DebugText")
-onready var balance_meter = get_parent().get_node("UI/ReferenceRect/BalanceMeterRect")
+onready var balance_meter = get_parent().get_node("UI/BalanceMeterContainer/BalanceMeterRect")
 onready var camera = get_parent().get_node("CameraHolder/Camera")
 
 
 var rotation_cap = PI/14;
 var rotational_velocity = 0;
+var steering_velocity = 0;
 
 func _ready():
 	time_active = 0;
@@ -23,7 +24,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta):
+func _process(delta):
 	time_active += delta;
 	
 	var base_rotation =  0#(sin(time_active * 1.5)) * max(time_active, 1)
@@ -33,18 +34,28 @@ func _physics_process(delta):
 	var local_right = -body.transform.basis.x
 	var dot = local_right.dot(player_position2D)
 	
-	rotational_velocity += (dot + base_rotation) * delta * delta * delta * 6
+	translation += global_transform.basis.x * delta * steering_velocity
+	steering_velocity *= 0.99
+	rotational_velocity -= steering_velocity * delta * delta * 0.08
+	
+	rotational_velocity += (dot + base_rotation) * delta * delta * 0.3
 	
 	body.rotation.z = body.rotation.z + rotational_velocity
 	
-	body.rotation.z *= 0.96
+	body.rotation.z *= 0.94
 	
 	if (body.rotation.z > rotation_cap or body.rotation.z < -rotation_cap):
 		rotational_velocity = 0
 		time_active = 0
 		camera.shake_duration = 0.7
+		camera.shake_intensity = 40
+	
+	
 	
 	body.rotation.z = clamp(body.rotation.z, -rotation_cap, rotation_cap)
 	balance_meter.rect_size.x = (60 + 60 * body.rotation.z / (rotation_cap))
 	translation.y = sin(time_active * 1.5) * 0.2 - 0.2
+	
+	
+	
 	pass
