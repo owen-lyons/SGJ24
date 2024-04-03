@@ -20,10 +20,11 @@ func _process(delta):
 	fall_speed += 0.03 * delta
 	translation += Vector3.DOWN * fall_speed
 	speed -= 10 * delta
-	if (global_transform.origin.y < 1.3):
+	if (global_transform.origin.y < 0.8):
 		var splash_node = splash_vfx.instance()
-		get_parent().add_child(splash_node)
+		get_tree().root.add_child(splash_node)
 		splash_node.global_transform.origin = global_transform.origin + Vector3.UP * 0.8
+		splash_node.rotation = Vector3.ZERO
 		queue_free()
 	pass
 	

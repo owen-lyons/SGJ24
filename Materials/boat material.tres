@@ -1,14 +1,36 @@
-[gd_resource type="SpatialMaterial" load_steps=3 format=2]
+[gd_resource type="SpatialMaterial" load_steps=5 format=2]
 
 [ext_resource path="res://Materials/outline material.tres" type="Material" id=1]
 [ext_resource path="res://Aseprite/wood tile.png" type="Texture" id=2]
 
+[sub_resource type="OpenSimplexNoise" id=1]
+seed = 6
+octaves = 5
+period = 0.1
+persistence = 1.0
+lacunarity = 4.0
+
+[sub_resource type="NoiseTexture" id=2]
+flags = 3
+width = 64
+height = 64
+seamless = true
+as_normalmap = true
+bump_strength = 1.1
+noise = SubResource( 1 )
+
 [resource]
 render_priority = 1
 next_pass = ExtResource( 1 )
+params_depth_draw_mode = 3
 albedo_texture = ExtResource( 2 )
-uv1_scale = Vector3( 4, 4, 4 )
+normal_enabled = true
+normal_scale = 1.0
+normal_texture = SubResource( 2 )
+uv1_scale = Vector3( 0.04, 0.04, 0.04 )
 uv1_triplanar = true
+uv2_scale = Vector3( 0.1, 0.1, 0.1 )
 uv2_offset = Vector3( 16, 16, 16 )
+uv2_triplanar = true
 proximity_fade_enable = true
 proximity_fade_distance = 1.0

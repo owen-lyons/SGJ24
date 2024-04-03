@@ -111,8 +111,9 @@ func _handle_steering(delta):
 	steering_meter.visible = true
 	steering_meter.position = get_viewport().get_camera().unproject_position(current_interaction.global_transform.origin)
 	steering_meter.position += Vector2.UP * 32*2
-	
-	boat_mesh.get_parent().get_parent().steering_velocity += boat_steer_acceleration * stick_input.dot(boat_mesh.get_global_transform_interpolated().basis.x)
+	var steer_value = stick_input.dot(boat_mesh.get_global_transform_interpolated().basis.x)
+	current_interaction.find_node("Wheel").rotation.z -= steer_value * 5 * delta
+	boat_mesh.get_parent().get_parent().steering_velocity += boat_steer_acceleration * steer_value
 	
 	if (abs(boat_mesh.get_parent().get_parent().steering_velocity) > max_boat_steer_speed):
 		boat_mesh.get_parent().get_parent().steering_velocity = max_boat_steer_speed * sign(boat_mesh.get_parent().get_parent().steering_velocity)
