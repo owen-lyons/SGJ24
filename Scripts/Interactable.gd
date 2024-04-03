@@ -10,3 +10,5 @@ onready var interaction_point = find_node("InteractionPoint")
 func _ready():
 	pass # Replace with function body.
 
+func _spawn_cannonball():
+	pass

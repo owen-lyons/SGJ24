@@ -42,7 +42,7 @@ func _process(delta):
 	
 	body.rotation.z = body.rotation.z + rotational_velocity
 	
-	body.rotation.z *= 0.94
+	body.rotation.z *= 0.96
 	
 	if (body.rotation.z > rotation_cap or body.rotation.z < -rotation_cap):
 		rotational_velocity = 0

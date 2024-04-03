@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/explosion.png-adbc63192bca9d574816a70a1b6da9fa.s3tc.stex"
-path.etc2="res://.import/explosion.png-adbc63192bca9d574816a70a1b6da9fa.etc2.stex"
+path.s3tc="res://.import/bomb.png-581f6e3f8d959f66f7acb9bad9f20157.s3tc.stex"
+path.etc2="res://.import/bomb.png-581f6e3f8d959f66f7acb9bad9f20157.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Aseprite/explosion.png"
-dest_files=[ "res://.import/explosion.png-adbc63192bca9d574816a70a1b6da9fa.s3tc.stex", "res://.import/explosion.png-adbc63192bca9d574816a70a1b6da9fa.etc2.stex" ]
+source_file="res://Aseprite/bomb.png"
+dest_files=[ "res://.import/bomb.png-581f6e3f8d959f66f7acb9bad9f20157.s3tc.stex", "res://.import/bomb.png-581f6e3f8d959f66f7acb9bad9f20157.etc2.stex" ]
 
 [params]
 
@@ -23,10 +23,10 @@ compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=true
 flags/filter=false
-flags/mipmaps=false
+flags/mipmaps=true
 flags/anisotropic=false
 flags/srgb=1
-process/fix_alpha_border=true
+process/fix_alpha_border=false
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false

@@ -93,4 +93,4 @@ material = ExtResource( 3 )
 [node name="SteeringWheel" parent="BoatBody" instance=ExtResource( 1 )]
 
 [node name="Cannon" parent="BoatBody" instance=ExtResource( 4 )]
-transform = Transform( -4.37115e-08, 0, -1, 0, 1, 0, 1, 0, -4.37115e-08, 0.876339, 0.493067, 3.51353 )
+transform = Transform( -4.37115e-08, 0, -1, 0, 1, 0, 1, 0, -4.37115e-08, 0, 0.5, 3.5 )
