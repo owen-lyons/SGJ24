@@ -5,6 +5,7 @@ var sinking = false
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
+export var move_dir = Vector3.FORWARD
 var init_y = 0
 var timer = 0
 var speed = 2
@@ -19,10 +20,9 @@ func _ready():
 func _process(delta):
 	timer += delta
 	if (not sinking):
-		transform.origin += Vector3.FORWARD * speed * delta
+		transform.origin += move_dir * speed * delta
 		global_transform.origin.y = init_y + 0.5 * sin(timer)
 	else:
-		translation -= (Vector3.FORWARD * speed/3 * delta)
 		global_transform.origin += (Vector3.DOWN * 1 * delta)
 	
 	
