@@ -6,9 +6,9 @@ extends Area
 # var b = "text"
 enum EAxis {X, Z}
 
-export var axis_dir = EAxis.X
+export(EAxis) var axis_dir = EAxis.X
 export var speed = 2.0
-onready var camera = get_parent().get_parent().get_node("CameraHolder/Camera")
+onready var camera = get_tree().root.find_node("Camera",true, false)
 var force
 var boat
 var splash_vfx = preload("../Scenes/Splash.tscn")
