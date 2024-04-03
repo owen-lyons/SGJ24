@@ -133,11 +133,11 @@ func _handle_cannon(delta):
 			camera.shake_intensity = 40
 			camera.shake_duration = 0.4
 			cannon_success = true
-			new_bomb.speed = 20
+			new_bomb.speed = 25
 		else:
 			camera.shake_intensity = 20
 			camera.shake_duration = 0.4
-			new_bomb.speed = 14
+			new_bomb.speed = max(20 - accuracy/3, 10)
 		
 	
 	if (cannon_released):

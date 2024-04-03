@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://Scenes/IcebergBehaviour.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/IcebergBehaviour.gd" type="Script" id=1]
 
 [sub_resource type="BoxShape" id=11]
 
@@ -51,7 +51,7 @@ mode = 1
 script = ExtResource( 1 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( -3.78399, 0.845282, 4.00718, 11.0755, 6.94962, 2.71025, -4.91396, 3.80115, -2.14601, 3.8147e-06, -15.4696, 1 )
+transform = Transform( -3.78399, 0.845282, 4.00718, 13.2025, 8.28427, 3.23074, -4.91396, 3.80115, -2.14601, 3.8147e-06, -15.4696, 1 )
 shape = SubResource( 11 )
 
 [node name="MeshInstance" type="MeshInstance" parent="CollisionShape"]

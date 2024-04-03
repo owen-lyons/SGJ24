@@ -1,9 +1,8 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+[gd_resource type="Shader" format=2]
 
-[sub_resource type="Shader" id=1]
+[resource]
 code = "shader_type spatial;
-//render_mode cull_front, unshaded;
-render_mode unshaded;
+render_mode  unshaded;
 
 uniform vec4 outline_color : hint_color;
 uniform float outline_width = 1.0;
@@ -25,8 +24,3 @@ void fragment() {
 		ALPHA = outline_color.a;
 	}
 }"
-
-[resource]
-shader = SubResource( 1 )
-shader_param/outline_color = Color( 0.0941176, 0.0941176, 0.0941176, 1 )
-shader_param/outline_width = 3.0

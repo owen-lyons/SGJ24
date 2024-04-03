@@ -23,7 +23,7 @@ func _process(delta):
 		transform.origin += move_dir * speed * delta
 		global_transform.origin.y = init_y + 0.5 * sin(timer)
 	else:
-		global_transform.origin += (Vector3.DOWN * 1 * delta)
+		global_transform.origin += (Vector3.DOWN * 2 * delta)
 	
 	
 	pass

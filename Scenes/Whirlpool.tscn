@@ -38,7 +38,7 @@ animations = [ {
 } ]
 
 [node name="Whirlpool" type="Area"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.708, 1.6, 0 )
+transform = Transform( 0.999849, 0, 0, 0, 1, 0, 0, 0, 0.999849, 0, 1.6, 0 )
 script = ExtResource( 2 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
@@ -54,4 +54,5 @@ transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0 )
 axis = 1
 shaded = true
 frames = SubResource( 67 )
+frame = 3
 playing = true

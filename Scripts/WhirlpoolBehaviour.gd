@@ -4,9 +4,7 @@ extends Area
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-enum EAxis {X, Z}
-
-export(EAxis) var axis_dir = EAxis.X
+var move_dir = Vector3.ZERO
 export var speed = 2.0
 onready var camera = get_tree().root.find_node("Camera",true, false)
 var force
@@ -19,27 +17,26 @@ func _ready():
 	connect("body_entered", self, "_on_Whirlpool_body_entered")
 	
 	
-	force = speed * scale.x * scale.x
+	
+	force = speed * scale.x * scale.x * 0.5
+	
+	
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	
-	if axis_dir == EAxis.X:
-		translation += transform.basis.x * speed * delta
-	elif axis_dir == EAxis.Z:
-		translation += transform.basis.z * speed * delta 
+	translation += move_dir * speed * delta
 		
 		
 	pass
 
 func _on_Whirlpool_body_entered(body):
 	if body.get_parent() == boat:
-		if (axis_dir == EAxis.X):
-			boat.rotational_velocity -= force * 0.004
+		if (abs(move_dir.dot(Vector3(1,0,0))) > abs(move_dir.dot(Vector3(0,0,1)))):
+			boat.rotational_velocity -= sign(move_dir.dot(Vector3(1,0,0))) * force * 0.004
 		else:
-			if (global_translation.x > boat.global_translation.x):
+			if (global_translation.x < boat.global_translation.x):
 				boat.rotational_velocity += abs(force) * 0.004
 			else:
 				boat.rotational_velocity -= abs(force) * 0.004
