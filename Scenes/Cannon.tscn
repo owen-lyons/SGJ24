@@ -21,8 +21,8 @@ height = 1.0
 radius = 0.4
 
 [sub_resource type="CylinderShape" id=17]
-height = 0.3
-radius = 0.1
+height = 0.2
+radius = 0.4
 
 [sub_resource type="CylinderMesh" id=18]
 

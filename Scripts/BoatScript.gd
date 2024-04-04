@@ -37,7 +37,10 @@ func _process(delta):
 	var dot = local_right.dot(player_position2D)
 	
 	body.translation.x += delta * steering_velocity
-	steering_velocity *= 0.99
+	if (not player.anchored):
+		steering_velocity *= 0.995
+	else:
+		steering_velocity *= 0.98
 	rotational_velocity -= steering_velocity * delta * delta * 0.04
 	
 	rotational_velocity += (dot + base_rotation) * delta * delta * 0.05
@@ -51,14 +54,12 @@ func _process(delta):
 		time_active = 0
 		camera.shake_duration = 0.7
 		camera.shake_intensity = 40
-	
-	
-	
+
 	body.rotation.z = clamp(body.rotation.z, -rotation_cap, rotation_cap)
 	
 	if player.anchored:
-		body.rotation.z *= 0.9
-		rotational_velocity *= 0.9
+		body.rotation.z *= 0.965
+		rotational_velocity *= 0.965
 	
 	balance_meter.rect_size.x = (60 + 60 * body.rotation.z / (rotation_cap))
 	translation.y = sin(time_active * 1.5) * 0.2 - 0.2

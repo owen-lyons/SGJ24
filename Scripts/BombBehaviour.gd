@@ -8,7 +8,7 @@ var fall_speed = 0
 var splash_vfx = preload("../Scenes/Splash.tscn")
 var explosion_vfx = preload("../Scenes/Explosion.tscn")
 onready var camera# = find_node("Camera",true, false)
-
+var splashed = false
 func _ready():
 	camera = get_tree().root.find_node("Camera",true, false)
 	pass # Replace with function body.
@@ -20,11 +20,16 @@ func _process(delta):
 	fall_speed += 0.03 * delta
 	translation += Vector3.DOWN * fall_speed
 	speed -= 10 * delta
+	
+	if (global_transform.origin.y < 1.4):
+		speed *= 0.8
+		if (not splashed):
+			splashed = true
+			var splash_node = splash_vfx.instance()
+			get_tree().root.add_child(splash_node)
+			splash_node.global_transform.origin = global_transform.origin + Vector3.UP * 0.2
+			splash_node.rotation = Vector3.ZERO
 	if (global_transform.origin.y < 0.8):
-		var splash_node = splash_vfx.instance()
-		get_tree().root.add_child(splash_node)
-		splash_node.global_transform.origin = global_transform.origin + Vector3.UP * 0.8
-		splash_node.rotation = Vector3.ZERO
 		queue_free()
 	pass
 	
