@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scripts/IcebergBehaviour.gd" type="Script" id=1]
+[ext_resource path="res://Materials/outline material.tres" type="Material" id=2]
 
 [sub_resource type="BoxShape" id=11]
 
@@ -34,8 +35,7 @@ seamless = true
 noise = SubResource( 13 )
 
 [sub_resource type="SpatialMaterial" id=12]
-params_diffuse_mode = 4
-params_specular_mode = 4
+next_pass = ExtResource( 2 )
 albedo_color = Color( 0.47451, 0.47451, 0.47451, 1 )
 albedo_texture = SubResource( 16 )
 metallic_specular = 0.0

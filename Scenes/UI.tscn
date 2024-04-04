@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Aseprite/balance meter backdrop.png" type="Texture" id=1]
 [ext_resource path="res://Aseprite/steering cursor.png" type="Texture" id=2]
@@ -7,6 +7,11 @@
 [ext_resource path="res://Aseprite/cannon meter.png" type="Texture" id=5]
 [ext_resource path="res://Aseprite/cannon meter cursor.png" type="Texture" id=6]
 [ext_resource path="res://Aseprite/cannon meter backdrop.png" type="Texture" id=7]
+[ext_resource path="res://Aseprite/anchor_meter.png" type="Texture" id=8]
+[ext_resource path="res://Aseprite/anchor cursor.png" type="Texture" id=9]
+[ext_resource path="res://Aseprite/anchor_cursor_hollow.png" type="Texture" id=10]
+[ext_resource path="res://Aseprite/anchor meter backdrop.png" type="Texture" id=11]
+[ext_resource path="res://Aseprite/anchor_meter_fill.png" type="Texture" id=12]
 
 [node name="UI" type="Control"]
 anchor_right = 1.0
@@ -15,8 +20,9 @@ anchor_bottom = 1.0
 [node name="DebugText" type="RichTextLabel" parent="."]
 margin_left = 7.0
 margin_top = 5.0
-margin_right = 329.0
-margin_bottom = 70.0
+margin_right = 942.0
+margin_bottom = 126.0
+rect_scale = Vector2( 5, 5 )
 
 [node name="BalanceMeterContainer" type="ReferenceRect" parent="."]
 anchor_left = 0.5
@@ -54,7 +60,7 @@ margin_right = 32.0
 margin_bottom = 16.0
 
 [node name="SteeringMeterBackground" type="Sprite" parent="SteeringMeterContainer"]
-position = Vector2( 0, -24 )
+position = Vector2( 0, -64 )
 scale = Vector2( 3, 3 )
 texture = ExtResource( 4 )
 
@@ -75,7 +81,7 @@ margin_right = 32.0
 margin_bottom = 16.0
 
 [node name="CannonMeterBackground" type="Sprite" parent="CannonMeterContainer"]
-position = Vector2( 256, -24 )
+position = Vector2( 256, -64 )
 scale = Vector2( 3, 3 )
 texture = ExtResource( 5 )
 
@@ -102,6 +108,49 @@ color = Color( 0.12549, 0.752941, 0.156863, 1 )
 
 [node name="CannonMeterBackdrop" type="Sprite" parent="CannonMeterContainer"]
 show_behind_parent = true
-position = Vector2( 256, -24 )
+position = Vector2( 256, -64 )
 scale = Vector2( 3, 3 )
 texture = ExtResource( 7 )
+
+[node name="AnchorMeterContainer" type="ReferenceRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -16.0
+margin_right = 64.0
+margin_bottom = 16.0
+
+[node name="AnchorMeterBackground" type="Sprite" parent="AnchorMeterContainer"]
+position = Vector2( 448, -64 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 8 )
+
+[node name="Backdrop" type="Sprite" parent="AnchorMeterContainer/AnchorMeterBackground"]
+z_index = -1
+texture = ExtResource( 11 )
+
+[node name="AnchorFillRect" type="Control" parent="AnchorMeterContainer/AnchorMeterBackground"]
+show_behind_parent = true
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -32.0
+margin_top = -48.0
+margin_right = -28.0
+margin_bottom = -16.0
+rect_pivot_offset = Vector2( 16, 16 )
+rect_clip_content = true
+
+[node name="Sprite" type="Sprite" parent="AnchorMeterContainer/AnchorMeterBackground/AnchorFillRect"]
+position = Vector2( 0, 33 )
+rotation = -1.57079
+texture = ExtResource( 12 )
+centered = false
+
+[node name="AnchorMeterCursor" type="Sprite" parent="AnchorMeterContainer/AnchorMeterBackground"]
+position = Vector2( 10, 0 )
+texture = ExtResource( 9 )
+
+[node name="AnchorMeterCursor2" type="Sprite" parent="AnchorMeterContainer/AnchorMeterBackground"]
+position = Vector2( 4, 0 )
+texture = ExtResource( 10 )

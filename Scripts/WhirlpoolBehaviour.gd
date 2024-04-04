@@ -7,6 +7,7 @@ extends Area
 var move_dir = Vector3.ZERO
 export var speed = 2.0
 onready var camera = get_tree().root.find_node("Camera",true, false)
+onready var player = get_tree().root.find_node("Player", true, false)
 var force
 var boat
 var splash_vfx = preload("../Scenes/Splash.tscn")
@@ -26,7 +27,13 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	translation += move_dir * speed * delta
+	
+	var velocity = move_dir * speed * delta
+	if (velocity.z > 0):
+		velocity.z /= player.anchor_speed_multiplier
+	else:
+		velocity.z *= player.anchor_speed_multiplier
+	translation += velocity
 		
 		
 	pass

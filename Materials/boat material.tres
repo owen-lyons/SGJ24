@@ -4,19 +4,19 @@
 [ext_resource path="res://Aseprite/wood tile.png" type="Texture" id=2]
 
 [sub_resource type="OpenSimplexNoise" id=1]
-seed = 6
-octaves = 5
+seed = 4
+octaves = 9
 period = 0.1
-persistence = 1.0
-lacunarity = 4.0
+persistence = 0.558
+lacunarity = 0.1
 
 [sub_resource type="NoiseTexture" id=2]
 flags = 3
-width = 64
-height = 64
+width = 16
+height = 16
 seamless = true
 as_normalmap = true
-bump_strength = 1.1
+bump_strength = 0.5
 noise = SubResource( 1 )
 
 [resource]
@@ -25,7 +25,7 @@ next_pass = ExtResource( 1 )
 params_depth_draw_mode = 3
 albedo_texture = ExtResource( 2 )
 normal_enabled = true
-normal_scale = 1.0
+normal_scale = 3.17
 normal_texture = SubResource( 2 )
 uv1_scale = Vector3( 0.04, 0.04, 0.04 )
 uv1_triplanar = true
