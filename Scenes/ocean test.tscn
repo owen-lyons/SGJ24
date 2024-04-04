@@ -120,6 +120,12 @@ transform = Transform( -0.589256, 0, -0.589256, 0, 1, 0, 0.589256, 0, -0.589256,
 [node name="SteeringWheel" parent="Boat/BoatBody" index="7"]
 transform = Transform( -0.833333, 0, -8.9407e-08, 0, 0.999999, 0, 8.9407e-08, 0, -0.833333, -0.185288, 0.461485, -2.14675 )
 
+[node name="RightTrails" parent="Boat/BoatBody" index="10"]
+frame = 0
+
+[node name="LeftTrails" parent="Boat/BoatBody" index="11"]
+frame = 2
+
 [node name="CameraHolder" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866026, 0, 20, 30 )
 

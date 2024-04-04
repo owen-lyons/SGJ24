@@ -12,6 +12,8 @@ onready var player = body.get_node("Player")
 onready var debug_text = get_parent().get_node("UI/DebugText")
 onready var balance_meter = get_parent().get_node("UI/BalanceMeterContainer/BalanceMeterRect")
 onready var camera = get_parent().get_node("CameraHolder/Camera")
+onready var left_trails = body.get_node("LeftTrails")
+onready var right_trails = body.get_node("RightTrails")
 
 
 var rotation_cap = PI/14;
@@ -67,4 +69,11 @@ func _process(delta):
 	if (body.translation.x < -20):
 		body.translation.x = -20
 		steering_velocity *= 0.95
+	
+	right_trails.global_transform.origin.y = min(1.8, 1.7 - 4 * body.rotation.z)
+	left_trails.global_transform.origin.y = min(2, 1.7 + 4 * body.rotation.z)
+	
+	left_trails.scale.y = max(0.01, player.anchor_speed_multiplier * 1 * (1 - 10 * body.rotation.z))
+	right_trails.scale.y = max(0.01, player.anchor_speed_multiplier * 1 * (1 + 10 * body.rotation.z))
+	
 	pass

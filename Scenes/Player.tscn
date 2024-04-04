@@ -146,7 +146,7 @@ double_sided = false
 render_priority = 3
 frames = SubResource( 32 )
 animation = "walk s"
-frame = 1
+frame = 2
 playing = true
 
 [node name="ShadowSprite" type="AnimatedSprite3D" parent="Sprite"]
