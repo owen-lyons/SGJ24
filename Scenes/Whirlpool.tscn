@@ -54,5 +54,5 @@ transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0 )
 axis = 1
 shaded = true
 frames = SubResource( 67 )
-frame = 1
+frame = 3
 playing = true
