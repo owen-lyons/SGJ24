@@ -32,6 +32,7 @@ shape = SubResource( 19 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.19198 )
 pixel_size = 0.05
 shaded = true
+alpha_cut = 2
 render_priority = 6
 frames = SubResource( 21 )
 

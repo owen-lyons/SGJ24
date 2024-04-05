@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scripts/OneShotVFXBehaviour.gd" type="Script" id=1]
 [ext_resource path="res://Aseprite/splash.png" type="Texture" id=2]
+[ext_resource path="res://Audio/longsplash.wav" type="AudioStream" id=3]
 
 [sub_resource type="AtlasTexture" id=70]
 flags = 19
@@ -59,5 +60,13 @@ transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0 )
 axis = 1
 shaded = true
 frames = SubResource( 69 )
+
+[node name="SplashPlayer" type="AudioStreamPlayer3D" parent="."]
+transform = Transform( 0.833333, 0, 0, 0, 0.666667, 0, 0, 0, 0.833333, 0, -1.375, 0 )
+stream = ExtResource( 3 )
+unit_db = 20.0
+unit_size = 14.0
+pitch_scale = 0.7
+autoplay = true
 
 [connection signal="animation_finished" from="AnimatedSprite3D" to="." method="_on_AnimatedSprite3D_animation_finished"]

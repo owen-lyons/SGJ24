@@ -29,10 +29,11 @@ func _ready():
 func _process(delta):
 	
 	var velocity = move_dir * speed * delta
-	if (velocity.z > 0):
-		velocity.z /= player.anchor_speed_multiplier
-	else:
-		velocity.z *= player.anchor_speed_multiplier
+	if (player.anchored):
+		if (velocity.z > 0):
+			velocity.z *= (1 + player.anchor_speed_multiplier)
+		else:
+			velocity.z *= player.anchor_speed_multiplier
 	translation += velocity
 		
 		
@@ -52,5 +53,6 @@ func _on_Whirlpool_body_entered(body):
 		splash_node.translation = translation
 		camera.shake_intensity = 20 * force
 		camera.shake_duration = 0.4
+		boat._splash_sfx()
 		queue_free()
 	pass # Replace with function body.

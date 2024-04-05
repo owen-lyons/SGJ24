@@ -8,7 +8,7 @@ extends Spatial
 var wave_info
 var spawn_array = []
 var timer = 0.0
-
+var active = false
 var whirlpool_scene = preload("../Scenes/Whirlpool.tscn")
 var iceberg_scene = preload("../Scenes/Iceberg.tscn")
 onready var debug_text = get_parent().get_node("UI/DebugText")
@@ -18,17 +18,17 @@ func _ready():
 	spawn_array.clear()
 	add_whirlpool(1, Vector3(20,0,0), Vector3(-1,0,0))
 	add_whirlpool(3, Vector3(-20,0,0), Vector3(1,0,0))
-	add_whirlpool(5, Vector3(2,0,-20), Vector3(0.5,0,1), 1, 4)
+	add_whirlpool(5, Vector3(2,0,-20), Vector3(0,0,1), 2, 4)
 	add_whirlpool(7, Vector3(15,0,20), Vector3(-1,0,-1))
-	add_whirlpool(9, Vector3(-15,0,-20), Vector3(2,0,1), 8)
-	add_iceberg(10, Vector3(-4,0,40), Vector3(0,0,-1), 0.5, 1)
-	add_iceberg(10, Vector3(10,0,43), Vector3(0,0,-1), 1, 0.5)
+	add_iceberg(0, Vector3(-4,0,40), Vector3(0,0,-1), 1, 1)
+	add_iceberg(0, Vector3(10,0,43), Vector3(0,0,-1), 2, 0.5)
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	
+	if (not active):
+		return
 	for spawn_info in spawn_array:
 		if !spawn_info.spawned and spawn_info.spawn_at_time < timer:
 			spawn_info.spawned = true

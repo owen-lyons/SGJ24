@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Aseprite/balance meter backdrop.png" type="Texture" id=1]
 [ext_resource path="res://Aseprite/steering cursor.png" type="Texture" id=2]
@@ -12,10 +12,39 @@
 [ext_resource path="res://Aseprite/anchor_cursor_hollow.png" type="Texture" id=10]
 [ext_resource path="res://Aseprite/anchor meter backdrop.png" type="Texture" id=11]
 [ext_resource path="res://Aseprite/anchor_meter_fill.png" type="Texture" id=12]
+[ext_resource path="res://Aseprite/title.png" type="Texture" id=13]
+[ext_resource path="res://Aseprite/press any button.png" type="Texture" id=14]
+[ext_resource path="res://Aseprite/hearts.png" type="Texture" id=15]
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 15 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 15 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ SubResource( 4 ), SubResource( 5 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
 
 [node name="UI" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+
+[node name="Title" type="Sprite" parent="."]
+scale = Vector2( 3, 3 )
+texture = ExtResource( 13 )
+offset = Vector2( 320, 64 )
+
+[node name="PressAny" type="Sprite" parent="."]
+scale = Vector2( 3, 3 )
+texture = ExtResource( 14 )
+offset = Vector2( 320, 272 )
 
 [node name="DebugText" type="RichTextLabel" parent="."]
 margin_left = 7.0
@@ -29,8 +58,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_top = -32.0
+margin_top = 96.0
 margin_right = 128.0
+margin_bottom = 128.0
 
 [node name="BalanceMeterBackground" type="Sprite" parent="BalanceMeterContainer"]
 scale = Vector2( 3, 3 )
@@ -154,3 +184,71 @@ texture = ExtResource( 9 )
 [node name="AnchorMeterCursor2" type="Sprite" parent="AnchorMeterContainer/AnchorMeterBackground"]
 position = Vector2( 4, 0 )
 texture = ExtResource( 10 )
+
+[node name="HeartsContainer" type="ReferenceRect" parent="."]
+margin_left = 64.0
+margin_top = -128.0
+margin_right = 268.0
+
+[node name="Heart1Container" type="ReferenceRect" parent="HeartsContainer"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="HeartsContainer/Heart1Container"]
+scale = Vector2( 3, 3 )
+frames = SubResource( 3 )
+centered = false
+
+[node name="Heart2Container" type="ReferenceRect" parent="HeartsContainer"]
+anchor_left = 0.25
+anchor_top = 0.5
+anchor_right = 0.25
+anchor_bottom = 0.5
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="HeartsContainer/Heart2Container"]
+scale = Vector2( 3, 3 )
+frames = SubResource( 3 )
+centered = false
+
+[node name="Heart3Container" type="ReferenceRect" parent="HeartsContainer"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="HeartsContainer/Heart3Container"]
+scale = Vector2( 3, 3 )
+frames = SubResource( 3 )
+centered = false
+
+[node name="Heart4Container" type="ReferenceRect" parent="HeartsContainer"]
+anchor_left = 0.75
+anchor_top = 0.5
+anchor_right = 0.75
+anchor_bottom = 0.5
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="HeartsContainer/Heart4Container"]
+scale = Vector2( 3, 3 )
+frames = SubResource( 3 )
+centered = false
+
+[node name="Heart5Container" type="ReferenceRect" parent="HeartsContainer"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="HeartsContainer/Heart5Container"]
+scale = Vector2( 3, 3 )
+frames = SubResource( 3 )
+centered = false

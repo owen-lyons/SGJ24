@@ -59,3 +59,17 @@ transform = Transform( 1, 1.19209e-07, 5.96046e-08, 1.49012e-08, 1, 2.98023e-08,
 mesh = SubResource( 10 )
 skeleton = NodePath("../..")
 material/0 = SubResource( 12 )
+
+[node name="BoatHitArea" type="Area" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2" type="CollisionShape" parent="BoatHitArea"]
+transform = Transform( -3.78399, 0.845282, 4.00718, 13.2025, 8.28427, 3.23074, -4.91396, 3.80115, -2.14601, 3.8147e-06, -15.4696, 1 )
+shape = SubResource( 11 )
+
+[node name="MeshInstance" type="MeshInstance" parent="BoatHitArea/CollisionShape2"]
+transform = Transform( 1, 1.19209e-07, 5.96046e-08, 1.49012e-08, 1, 2.98023e-08, 0, -2.38419e-07, 1, 0, 0, 0 )
+mesh = SubResource( 10 )
+skeleton = NodePath("../../..")
+material/0 = SubResource( 12 )

@@ -1,8 +1,30 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=32 format=2]
 
+[ext_resource path="res://Audio/click.wav" type="AudioStream" id=1]
+[ext_resource path="res://Audio/splash_trimmed.wav" type="AudioStream" id=2]
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=5]
 [ext_resource path="res://Scripts/PlayerShadow.gd" type="Script" id=6]
 [ext_resource path="res://Aseprite/hamish sprites.png" type="Texture" id=7]
+
+[sub_resource type="AtlasTexture" id=82]
+flags = 24
+atlas = ExtResource( 7 )
+region = Rect2( 128, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=83]
+flags = 24
+atlas = ExtResource( 7 )
+region = Rect2( 160, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=84]
+flags = 24
+atlas = ExtResource( 7 )
+region = Rect2( 192, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=85]
+flags = 24
+atlas = ExtResource( 7 )
+region = Rect2( 224, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=64]
 flags = 24
@@ -96,6 +118,11 @@ region = Rect2( 96, 96, 32, 32 )
 
 [sub_resource type="SpriteFrames" id=32]
 animations = [ {
+"frames": [ SubResource( 82 ), SubResource( 83 ), SubResource( 84 ), SubResource( 83 ), SubResource( 84 ), SubResource( 85 ), SubResource( 84 ), SubResource( 83 ) ],
+"loop": true,
+"name": "dying",
+"speed": 5.0
+}, {
 "frames": [ SubResource( 64 ), SubResource( 65 ) ],
 "loop": true,
 "name": "steer",
@@ -146,8 +173,6 @@ double_sided = false
 render_priority = 3
 frames = SubResource( 32 )
 animation = "walk s"
-frame = 2
-playing = true
 
 [node name="ShadowSprite" type="AnimatedSprite3D" parent="Sprite"]
 transform = Transform( 6.6, 0, 0, 0, 6.6, 0, 0, 2.38419e-07, 6.6, 0, 0, 0 )
@@ -179,3 +204,14 @@ shape = SubResource( 62 )
 [node name="MeshInstance" type="MeshInstance" parent="InteractableArea/CollisionShape"]
 transform = Transform( 0.4, 0, 0, 0, 0.25, 0, 0, 0, 0.4, 0, 0, 0 )
 mesh = SubResource( 63 )
+
+[node name="ClickPlayer" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 1 )
+unit_size = 20.0
+pitch_scale = 3.0
+
+[node name="BonkPlayer" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 2 )
+unit_db = 24.194
+unit_size = 20.3
+pitch_scale = 0.76
