@@ -1,13 +1,10 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Scenes/Whirlpool.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Boat.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scripts/OceanMeshBehaviour.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/UI.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scripts/IcebergBehaviour.gd" type="Script" id=6]
 [ext_resource path="res://Scripts/CameraScript.gd" type="Script" id=10]
-
 
 [sub_resource type="Environment" id=5]
 background_mode = 1
@@ -88,47 +85,6 @@ subsurf_scatter_strength = 0.0
 uv1_scale = Vector3( 10, 10, 10 )
 uv1_triplanar = true
 
-[sub_resource type="BoxShape" id=11]
-
-[sub_resource type="CubeMesh" id=10]
-
-[sub_resource type="OpenSimplexNoise" id=15]
-seed = 4
-octaves = 1
-period = 0.1
-persistence = 1.0
-lacunarity = 4.0
-
-[sub_resource type="NoiseTexture" id=16]
-flags = 2
-width = 64
-height = 64
-seamless = true
-bump_strength = 32.0
-noise = SubResource( 15 )
-
-[sub_resource type="OpenSimplexNoise" id=13]
-period = 191.0
-persistence = 0.569
-lacunarity = 2.37
-
-[sub_resource type="NoiseTexture" id=14]
-flags = 0
-width = 64
-height = 64
-seamless = true
-noise = SubResource( 13 )
-
-[sub_resource type="SpatialMaterial" id=12]
-params_diffuse_mode = 4
-params_specular_mode = 4
-albedo_color = Color( 0.47451, 0.47451, 0.47451, 1 )
-albedo_texture = SubResource( 16 )
-metallic_specular = 0.0
-subsurf_scatter_enabled = true
-subsurf_scatter_strength = 1.0
-subsurf_scatter_texture = SubResource( 14 )
-
 [sub_resource type="GIProbeData" id=4]
 bounds = AABB( -15, -3, -15, 30, 6, 30 )
 cell_size = 0.117188
@@ -157,8 +113,8 @@ environment = SubResource( 5 )
 [node name="Boat" parent="." instance=ExtResource( 3 )]
 transform = Transform( -0.707107, 0, 0.707107, 0, 1.5, 0, -0.707107, 0, -0.707107, 0, 0, 0 )
 
-[node name="Player" parent="Boat" instance=ExtResource( 1 )]
-transform = Transform( -0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 0, 1.6, 0 )
+[node name="Player" parent="Boat/BoatBody" index="14" instance=ExtResource( 1 )]
+transform = Transform( -0.589256, 0, -0.589256, 0, 1, 0, 0.589256, 0, -0.589256, 0, 0.225, 0 )
 
 [node name="CameraHolder" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866026, 0, 20, 30 )
@@ -190,40 +146,6 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Iceberg" type="RigidBody" parent="OceanHolder"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.15511, 1.6, 28.7472 )
-collision_layer = 5
-collision_mask = 5
-mode = 1
-script = ExtResource( 6 )
-
-[node name="CollisionShape" type="CollisionShape" parent="OceanHolder/Iceberg"]
-transform = Transform( -3.78399, 0.845282, 4.00718, 11.0755, 6.94962, 2.71025, -4.91396, 3.80115, -2.14601, 3.8147e-06, -15.4696, 1 )
-shape = SubResource( 11 )
-
-[node name="MeshInstance" type="MeshInstance" parent="OceanHolder/Iceberg/CollisionShape"]
-transform = Transform( 1, 1.19209e-07, 5.96046e-08, 1.49012e-08, 1, 2.98023e-08, 0, -2.38419e-07, 1, 0, 0, 0 )
-mesh = SubResource( 10 )
-skeleton = NodePath("../..")
-material/0 = SubResource( 12 )
-
-[node name="Iceberg3" type="RigidBody" parent="OceanHolder"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1046, 3.7782, 41.4308 )
-collision_layer = 5
-collision_mask = 5
-mode = 1
-script = ExtResource( 6 )
-
-[node name="CollisionShape" type="CollisionShape" parent="OceanHolder/Iceberg3"]
-transform = Transform( 2.55618, -2.95664, 3.7788, 11.0755, 6.94962, 2.71025, -5.65079, 2.53407, 2.52655, 0, -15.4696, 1 )
-shape = SubResource( 11 )
-
-[node name="MeshInstance" type="MeshInstance" parent="OceanHolder/Iceberg3/CollisionShape"]
-transform = Transform( 1, 1.19209e-07, 5.96046e-08, 1.49012e-08, 1, 2.98023e-08, 0, -2.38419e-07, 1, 0, 0, 0 )
-mesh = SubResource( 10 )
-skeleton = NodePath("../..")
-material/0 = SubResource( 12 )
-
 [node name="GIProbe" type="GIProbe" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0 )
 visible = false
@@ -231,7 +153,4 @@ subdiv = 2
 extents = Vector3( 15, 3, 15 )
 data = SubResource( 4 )
 
-[node name="Whirlpool" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.27377, 1.57012, 20.5483 )
-axis_dir = 1
-speed = -2.0
+[editable path="Boat"]

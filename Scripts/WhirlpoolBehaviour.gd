@@ -29,11 +29,11 @@ func _ready():
 func _process(delta):
 	
 	var velocity = move_dir * speed * delta
-	if (player.anchored):
-		if (velocity.z > 0):
-			velocity.z *= (1 + player.anchor_speed_multiplier)
-		else:
-			velocity.z *= player.anchor_speed_multiplier
+	#if (player.anchored):
+	#	if (velocity.z > 0):
+	#		velocity.z *= (1 + player.anchor_speed_multiplier)
+	#	else:
+	#		velocity.z *= player.anchor_speed_multiplier
 	translation += velocity
 		
 		

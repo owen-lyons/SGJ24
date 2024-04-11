@@ -23,10 +23,10 @@ func _process(delta):
 	timer += delta
 	if (not sinking):
 		var velocity = move_dir * speed * delta
-		if (velocity.z > 0):
-			velocity.z /= player.anchor_speed_multiplier
-		else:
-			velocity.z *= player.anchor_speed_multiplier
+	#	if (velocity.z > 0):
+	#		velocity.z /= player.anchor_speed_multiplier
+	#	else:
+	#		velocity.z *= player.anchor_speed_multiplier
 		transform.origin += velocity
 		global_transform.origin.y = init_y + 0.5 * sin(timer)
 	else:
